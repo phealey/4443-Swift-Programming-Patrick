@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>28146211-08AA-4D48-A9FE-C79D9918F67A</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Program_1_Starter</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>5A05A6EF98A7D63F81A23051039EE16956F4B2D0</key>
+		<string>https://github.com/phealey/4443-Swift-Programming-Patrick.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Program-1-Starter/Program_1_Starter.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>5A05A6EF98A7D63F81A23051039EE16956F4B2D0</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/phealey/4443-Swift-Programming-Patrick.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>5A05A6EF98A7D63F81A23051039EE16956F4B2D0</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>5A05A6EF98A7D63F81A23051039EE16956F4B2D0</string>
+			<key>IDESourceControlWCCName</key>
+			<string>4443-Swift-Programming-Patrick</string>
+		</dict>
+	</array>
+</dict>
+</plist>
