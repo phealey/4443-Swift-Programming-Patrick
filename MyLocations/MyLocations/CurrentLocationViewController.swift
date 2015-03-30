@@ -51,7 +51,12 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
         presentViewController(alert, animated: true, completion: nil)
     }
     
-    
+    override func viewWillAppear(animated: Bool) {
+        // Get a reference to the CurrentPoint from the custom tab bar controller.
+                        /*you can play with the data here*/
+        let CurrentPoint = (self.tabBarController as CustomTabBarController).currentPoint
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
