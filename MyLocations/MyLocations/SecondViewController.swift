@@ -12,7 +12,14 @@ import MapKit
 class SecondViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var ageLabel: UILabel!
     
+    override func viewWillAppear(animated: Bool) {
+        // Get a reference to the model data from the custom tab bar controller.
+                        /*again, play with the data here*/
+        let CurrentPoint = (self.tabBarController as CustomTabBarController).currentPoint
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // 1
