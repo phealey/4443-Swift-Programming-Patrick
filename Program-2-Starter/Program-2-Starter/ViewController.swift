@@ -92,7 +92,7 @@ class ViewController: UIViewController , ColorTableViewControllerDelegate{
         //            let tableVC = navVC.topViewController as ColorTableViewController
         //            tableVC.myColors = myColors
         //            tableVC.delegate = self
-        //        }
+        //        }//
     }
     
     
