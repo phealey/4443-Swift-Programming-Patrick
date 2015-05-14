@@ -69,7 +69,7 @@ class Colors {
     
     /********************************************************************************************
     * Function:
-    *    fetchColorCount
+    *    fetchNextColor
     * Params:
     *    Void
     * Returns:

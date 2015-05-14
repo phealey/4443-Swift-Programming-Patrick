@@ -63,6 +63,8 @@ class ColorTableViewController: UITableViewController {
         
         cell.textLabel?.text = name
         
+        
+        
         return cell
     }
     
