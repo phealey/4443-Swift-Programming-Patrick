@@ -42,22 +42,22 @@ class ViewController: UIViewController {
     
     var totalCorrect = 0;
     
-    var colorNames : [String] = ["Red","Green","Blue","Orange","Black","White","Brown","Purple","Gray","Yellow"]
+//    var colorNames : [String] = ["Red","Green","Blue","Orange","Black","White","Brown","Purple","Gray","Yellow"]
     
     //Color dictionary type not used in the program but kept as an example for future
-    var colorRGB : [Dictionary<String,UInt>] = [
-        ["Red":0xFF0000],
-        ["Green":0x00FF00],
-        ["Blue":0x0000FF],
-        ["Orange":0xFF7F00],
-        ["Black":0x000000],
-        ["White":0xFFFFFF],
-        ["Pink":0xFF6EB4],
-        ["Purple":0x8968CD],
-        ["Gray":0xBEBEBE],
-        ["Yellow":0xFFFF00],
-        ["Gray2":0xC0C0C0]
-    ]
+//    var colorRGB : [Dictionary<String,UInt>] = [
+//        ["Red":0xFF0000],
+//        ["Green":0x00FF00],
+//        ["Blue":0x0000FF],
+//        ["Orange":0xFF7F00],
+//        ["Black":0x000000],
+//        ["White":0xFFFFFF],
+//        ["Pink":0xFF6EB4],
+//        ["Purple":0x8968CD],
+//        ["Gray":0xBEBEBE],
+//        ["Yellow":0xFFFF00],
+//        ["Gray2":0xC0C0C0]
+//    ]
 
     var myColors:Colors
     
@@ -156,39 +156,39 @@ class ViewController: UIViewController {
             buttonAnswer = Int(arc4random_uniform(3))
         }
         lastButtonAnswer = buttonAnswer
-        
-        //change the color number to range up to 129
-        colorNumber = Int(arc4random_uniform(129))
+        let count = myColors.colorsTupleArray.count
+      
+        colorNumber = Int(arc4random_uniform(UInt32(count)))
         while colorNumber == lastButtonAnswer {
-            colorNumber = Int(arc4random_uniform(129))
+            colorNumber = Int(arc4random_uniform(UInt32(count)))
         }
         lastColorNumber = colorNumber
         //edit change color to use the dictionary
         changeColor()
         
         var color = colorNumber
-        var prev = ((colorNumber - 1) + colorNames.count) % colorNames.count
-        var next = (colorNumber + 1) % colorNames.count
+        var prev = ((colorNumber - 100) + count) % myColors.colorsTupleArray.count
+        var next = (colorNumber + 100) % count
         
         if(buttonAnswer == 0){
-            btnAnswer1OUTLET.setTitle(colorNames[color], forState: UIControlState.Normal)
-            btnAnswer2OUTLET.setTitle(colorNames[prev], forState: UIControlState.Normal)
-            btnAnswer3OUTLET.setTitle(colorNames[next], forState: UIControlState.Normal)
+            btnAnswer1OUTLET.setTitle(myColors.colorsTupleArray[color].colorName, forState: UIControlState.Normal)
+            btnAnswer2OUTLET.setTitle(myColors.colorsTupleArray[prev].colorName, forState: UIControlState.Normal)
+            btnAnswer3OUTLET.setTitle(myColors.colorsTupleArray[next].colorName, forState: UIControlState.Normal)
             button1Correct = true;
             
         }
         
         if(buttonAnswer == 1){
-            btnAnswer1OUTLET.setTitle(colorNames[prev], forState: UIControlState.Normal)
-            btnAnswer2OUTLET.setTitle(colorNames[color], forState: UIControlState.Normal)
-            btnAnswer3OUTLET.setTitle(colorNames[next], forState: UIControlState.Normal)
+            btnAnswer1OUTLET.setTitle(myColors.colorsTupleArray[prev].colorName, forState: UIControlState.Normal)
+            btnAnswer2OUTLET.setTitle(myColors.colorsTupleArray[color].colorName, forState: UIControlState.Normal)
+            btnAnswer3OUTLET.setTitle(myColors.colorsTupleArray[next].colorName, forState: UIControlState.Normal)
             button2Correct = true
         }
         
         if(buttonAnswer == 2){
-            btnAnswer1OUTLET.setTitle(colorNames[next], forState: UIControlState.Normal)
-            btnAnswer2OUTLET.setTitle(colorNames[prev], forState: UIControlState.Normal)
-            btnAnswer3OUTLET.setTitle(colorNames[color], forState: UIControlState.Normal)
+            btnAnswer1OUTLET.setTitle(myColors.colorsTupleArray[next].colorName, forState: UIControlState.Normal)
+            btnAnswer2OUTLET.setTitle(myColors.colorsTupleArray[prev].colorName, forState: UIControlState.Normal)
+            btnAnswer3OUTLET.setTitle(myColors.colorsTupleArray[color].colorName, forState: UIControlState.Normal)
             button3Correct = true
         }
         
