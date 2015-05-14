@@ -149,26 +149,31 @@ class ViewController: UIViewController {
     
     
     func matchColorLogic() -> Bool{
-        var GenerateColors = self.myColors.fetchRandomColor()
+        let GenerateColors = myColors.fetchColorCount()
 
         buttonAnswer = Int(arc4random_uniform(3))
         while buttonAnswer == lastButtonAnswer {
             buttonAnswer = Int(arc4random_uniform(3))
         }
         lastButtonAnswer = buttonAnswer
-        let count = myColors.colorsTupleArray.count
+        
       
-        colorNumber = Int(arc4random_uniform(UInt32(count)))
+        colorNumber = Int(arc4random_uniform(UInt32(GenerateColors)))
         while colorNumber == lastButtonAnswer {
-            colorNumber = Int(arc4random_uniform(UInt32(count)))
+            colorNumber = Int(arc4random_uniform(UInt32(GenerateColors)))
         }
         lastColorNumber = colorNumber
         //edit change color to use the dictionary
-        changeColor()
+        
         
         var color = colorNumber
-        var prev = ((colorNumber - 100) + count) % myColors.colorsTupleArray.count
-        var next = (colorNumber + 100) % count
+        var prev = ((colorNumber - 100) + GenerateColors) % myColors.colorsTupleArray.count
+        var next = (colorNumber + 100) % GenerateColors
+        
+        var Hex = self.myColors.colorsTupleArray[color].hexValue
+        var ui = self.myColors.hexStringToUIColor(Hex)
+        
+        changeColor(ui)
         
         if(buttonAnswer == 0){
             btnAnswer1OUTLET.setTitle(myColors.colorsTupleArray[color].colorName, forState: UIControlState.Normal)
@@ -196,39 +201,10 @@ class ViewController: UIViewController {
     }
     
     
-    func changeColor() -> Bool{
+    func changeColor(Name : UIColor) -> Bool{
         //change this to handle the dictionary rather than this awful if statement
-        if(colorNumber == 0){
-            //lblChangeColor.backgroundColor = UIColor.redColor()
-            lblChangeColor.backgroundColor = UIColorFromRGB(0xFF0000)
-        }
-        if(colorNumber == 1){
-            lblChangeColor.backgroundColor = UIColor.greenColor()
-        }
-        if(colorNumber == 2){
-            lblChangeColor.backgroundColor = UIColor.blueColor()
-        }
-        if(colorNumber == 3){
-            lblChangeColor.backgroundColor = UIColor.orangeColor()
-        }
-        if(colorNumber == 4){
-            lblChangeColor.backgroundColor = UIColor.blackColor()
-        }
-        if(colorNumber == 5){
-            lblChangeColor.backgroundColor = UIColor.whiteColor()
-        }
-        if(colorNumber == 6){
-            lblChangeColor.backgroundColor = UIColor.brownColor()
-        }
-        if(colorNumber == 7){
-            lblChangeColor.backgroundColor = UIColor.purpleColor()
-        }
-        if(colorNumber == 8){
-            lblChangeColor.backgroundColor = UIColor.grayColor()
-        }
-        if(colorNumber == 9){
-            lblChangeColor.backgroundColor = UIColor.yellowColor()
-        }
+        //lblChangeColor.backgroundColor = UIColor.redColor()
+        lblChangeColor.backgroundColor = Name
         
         lblTotalCorrect.text = "Total Correct: \(totalCorrect)"
         
