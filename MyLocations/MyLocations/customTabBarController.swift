@@ -13,7 +13,6 @@ import MapKit
 class PointData {
     var lat = 0.0
     var lon = 0.0
-    var set = false
 }
 
 class CustomTabBarController: UITabBarController {

@@ -14,7 +14,6 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
     let locationManager = CLLocationManager()
     
     var location: CLLocation?
-    
 
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var latitudeLabel: UILabel!
@@ -52,9 +51,6 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
     }
     
     override func viewWillAppear(animated: Bool) {
-        // Get a reference to the CurrentPoint from the custom tab bar controller.
-                        /*you can play with the data here*/
-        let CurrentPoint = (self.tabBarController as CustomTabBarController).currentPoint
         
     }
     
@@ -89,6 +85,15 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
         if let location = location{
             latitudeLabel.text = String(format: "%.8f", location.coordinate.latitude)
             longitudeLabel.text = String(format: "%.8f", location.coordinate.longitude)
+        }
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        var secondview : SecondViewController = segue.destinationViewController as SecondViewController
+        if(segue.identifier == "GotCoordinates")
+        {
+            secondview.lat = location!.coordinate.latitude
+            secondview.lon = location!.coordinate.longitude
+            
         }
     }
     

@@ -15,28 +15,23 @@ class SecondViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!
     
+    var lat : Double?
+    var lon : Double?
+
     override func viewWillAppear(animated: Bool) {
         // Get a reference to the model data from the custom tab bar controller.
                         /*again, play with the data here*/
-        let CurrentPoint = (self.tabBarController as CustomTabBarController).currentPoint
-        if(CurrentPoint.set == true){
-            let location = CLLocationCoordinate2D(latitude: CurrentPoint.lat,longitude: CurrentPoint.lon
-            )
+
+            let location = CLLocationCoordinate2D(latitude: lat!,longitude: lon!)
             //set the location of the center if the point has been initialized
             let span = MKCoordinateSpanMake(0.05, 0.05)
             let region = MKCoordinateRegion(center: location, span: span)
             mapView.setRegion(region, animated: true)
-        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         // 1
-        let currentPoint = (self.tabBarController as CustomTabBarController).currentPoint
-        if(currentPoint.set == true){
-            var lat = currentPoint.lat
-            var lon = currentPoint.lon
-        }
-        let location = CLLocationCoordinate2D(latitude: currentPoint.lat, longitude: currentPoint.lon)
+        let location = CLLocationCoordinate2D(latitude: lat!, longitude: lon!)
         // 2
         let span = MKCoordinateSpanMake(0.05, 0.05)
         let region = MKCoordinateRegion(center: location, span: span)
