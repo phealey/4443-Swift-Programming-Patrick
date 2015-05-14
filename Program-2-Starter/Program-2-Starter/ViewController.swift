@@ -37,6 +37,7 @@ class ViewController: UIViewController , ColorTableViewControllerDelegate{
     @IBOutlet weak var redSlider: UISlider!
     @IBOutlet weak var greenSlider: UISlider!
     @IBOutlet weak var blueSlider: UISlider!
+    //var hist[color : UIColor]
     
 
     
@@ -111,15 +112,30 @@ class ViewController: UIViewController , ColorTableViewControllerDelegate{
         colorItemsLabel.textColor = labelColor
         chosenColorTitle.textColor = labelColor
         colorRGBLabel.text = ""
-//        colorRGBLabel.text.append(myColors.fetchRGB(color).R)
-//        colorRGBLabel.text.append(myColors.fetchRGB(color).G)
-//        colorRGBLabel.text.append(myColors.fetchRGB(color).B)
         
-        
+        var str : String?
         let rgb = myColors.fetchRGB(color)
         let r = Float(255*rgb.R)
         let g = Float(255*rgb.G)
         let b = Float(255*rgb.B)
+        str = r.description + " " + g.description + " " + b.description
+        colorRGBLabel.text = str
+        //use this logic for HSL and HSV
+        str = ""
+        let hsv = myColors.fetchHSV(color)
+        let h = Float(255*hsv.H)
+        let s = Float(255*hsv.S)
+        let v = Float(255*hsv.V)
+        str = h.description + " " + s.description + " " + v.description
+        colorHSVLabel.text = str
+        
+        str = ""
+        let hsl = myColors.fetchHSV(color)
+        let i = Float(255*hsv.H)
+        let j = Float(255*hsv.S)
+        let k = Float(255*hsv.V)
+        str = i.description + " " + j.description + " " + k.description
+        colorHSLLabel.text = str
         
         println("red: \(r)")
 //        redSlider.setValue(r, animated: true)
